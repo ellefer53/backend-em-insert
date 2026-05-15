@@ -2,9 +2,9 @@
  
 ## Identificação
  
-Nome do aluno:
-Turma:
-Data:
+Nome do aluno:Ellefer Fernanda Bovaroti Rizzo
+Turma:3° B
+Data:15/05/2026
  
 ---
  
@@ -12,7 +12,7 @@ Data:
  
 Cole abaixo o link do seu repositório:
  
-https://github.com/SEU_USUARIO/backend-em-insert
+https://github.com/ellefer53/backend-em-insert
  
 ---
  
@@ -26,7 +26,9 @@ git remote -v
  
 Cole abaixo o resultado:
  
-cole aqui o resultado do comando
+$ git remote -v
+origin  https://github.com/ellefer53/backend-em-insert.git (fetch)
+origin  https://github.com/ellefer53/backend-em-insert.git (push)
  
 ---
  
@@ -38,7 +40,15 @@ git log --oneline
  
 Cole abaixo o resultado:
  
-cole aqui o resultado do comando
+$ git log --oneline
+eed32e8 (HEAD -> main, origin/main) dxhfddxn
+3fff8ed Atualiza rota raiz com pesquisa por data
+cf04d37 Configura projeto insert
+4ffe899 Rename project section from 'Parte 2' to 'Insert'
+ea330b7 Inserção de 3 registros de leituras
+dba6585 Filtra Leituras por data
+ba38040 Update DB_PASSWORD in .env-exemplo
+3a9d2b0 Commit inicial
  
 O resultado deve mostrar commits como:
  
@@ -55,7 +65,15 @@ git status
  
 Cole abaixo o resultado:
  
-cole aqui o resultado do comando
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   EVIDENCIAS_PARTE_1_E_2.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
  
 ---
  
@@ -67,7 +85,21 @@ npm run dev
  
 Cole abaixo a mensagem exibida no terminal:
  
-cole aqui o resultado do terminal
+$ npm run dev
+
+> backend-em-parte-2@1.0.0 dev
+> nodemon src/server.js
+
+[nodemon] 3.1.14
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,cjs,json
+[nodemon] starting `node src/server.js`
+Banco db_em já existe.
+Conexão com PostgreSQL realizada com sucesso.
+Tabela sincronizada com sucesso.
+Tabela leituras já possui dados.
+Servidor rodando em http://localhost:3000
  
 ---
  
@@ -79,7 +111,50 @@ http://localhost:3000/api/leituras
  
 Cole abaixo parte do resultado exibido:
  
-cole aqui parte do resultado da rota /api/leituras
+[
+  {
+    "id": 1,
+    "station_id": "EM-ARACATUBA-01",
+    "timestamp": "2026-04-01T11:00:00.000Z",
+    "temperature_c": 24.5,
+    "humidity_pct": 72.1
+  },
+  {
+    "id": 2,
+    "station_id": "EM-ARACATUBA-01",
+    "timestamp": "2026-04-01T12:00:00.000Z",
+    "temperature_c": 25.8,
+    "humidity_pct": 69.4
+  },
+  {
+    "id": 3,
+    "station_id": "EM-ARACATUBA-01",
+    "timestamp": "2026-04-01T13:00:00.000Z",
+    "temperature_c": 27.2,
+    "humidity_pct": 65.8
+  },
+  {
+    "id": 4,
+    "station_id": "EM-ARACATUBA-01",
+    "timestamp": "2026-04-02T11:00:00.000Z",
+    "temperature_c": 23.9,
+    "humidity_pct": 74.3
+  },
+  {
+    "id": 5,
+    "station_id": "EM-ARACATUBA-01",
+    "timestamp": "2026-04-02T12:00:00.000Z",
+    "temperature_c": 25.1,
+    "humidity_pct": 70.6
+  },
+  {
+    "id": 6,
+    "station_id": "EM-ARACATUBA-01",
+    "timestamp": "2026-04-02T13:00:00.000Z",
+    "temperature_c": 26.7,
+    "humidity_pct": 67.2
+  }
+]
  
 ---
  
@@ -93,7 +168,16 @@ http://localhost:3000/
  
 Cole abaixo o resultado exibido:
  
-cole aqui o resultado da rota /
+{
+  "mensagem": "API Estação Meteorológica",
+  "descricao": "API para consulta de leituras meteorológicas armazenadas no PostgreSQL.",
+  "rotasDisponiveis": {
+    "listarTodasAsLeituras": "GET /api/leituras",
+    "pesquisarLeiturasPorData": "GET /api/leituras/data/2026-04-01"
+  },
+  "formatoDaData": "YYYY-MM-DD",
+  "exemploDeUso": "http://localhost:3000/api/leituras/data/2026-04-01"
+}
  
 O resultado deve mostrar as rotas disponíveis, incluindo:
  
@@ -110,7 +194,33 @@ http://localhost:3000/api/leituras/data/2026-04-01
  
 Cole abaixo parte do resultado exibido:
  
-cole aqui parte do resultado da rota /api/leituras/data/2026-04-01
+{
+  "dataPesquisada": "2026-04-01",
+  "total": 3,
+  "leituras": [
+    {
+      "id": 1,
+      "station_id": "EM-ARACATUBA-01",
+      "timestamp": "2026-04-01T11:00:00.000Z",
+      "temperature_c": 24.5,
+      "humidity_pct": 72.1
+    },
+    {
+      "id": 2,
+      "station_id": "EM-ARACATUBA-01",
+      "timestamp": "2026-04-01T12:00:00.000Z",
+      "temperature_c": 25.8,
+      "humidity_pct": 69.4
+    },
+    {
+      "id": 3,
+      "station_id": "EM-ARACATUBA-01",
+      "timestamp": "2026-04-01T13:00:00.000Z",
+      "temperature_c": 27.2,
+      "humidity_pct": 65.8
+    }
+  ]
+}
  
 ---
  
@@ -122,7 +232,10 @@ http://localhost:3000/api/leituras/data/01-04-2026
  
 Cole abaixo o resultado exibido:
  
-cole aqui o resultado da validação de data inválida
+{
+  "mensagem": "Formato de data inválido. Use o formato YYYY-MM-DD.",
+  "exemplo": "2026-05-11"
+}
  
 ---
  
@@ -130,7 +243,18 @@ cole aqui o resultado da validação de data inválida
  
 Cole abaixo o trecho da rota raiz alterada no arquivo src/server.js:
  
-cole aqui o código da rota app.get('/')
+app.get('/', (req, res) => {
+  return res.json({
+    mensagem: 'API Estação Meteorológica',
+    descricao: 'API para consulta de leituras meteorológicas armazenadas no PostgreSQL.',
+    rotasDisponiveis: {
+      listarTodasAsLeituras: 'GET /api/leituras',
+      pesquisarLeiturasPorData: 'GET /api/leituras/data/2026-04-01',
+    },
+    formatoDaData: 'YYYY-MM-DD',
+    exemploDeUso: 'http://localhost:3000/api/leituras/data/2026-04-01',
+  });
+});
  
 ---
  
